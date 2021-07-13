@@ -1,0 +1,21 @@
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+@import "./base/reset";
+
+@import "./pages/home";
+@import "./pages/signIn";
+@import "./pages/signUp";
+@import "./pages/dashboard";
+@import "./pages/calendar";
+@import "./pages/recoverPassword";
+@import "./pages/confirmEmail";
+
+@import "./components/datePicker";
+@import "./components/timePicker";
+@import "./components/modal";
+@import "./components/weekCalendar";
+@import "./components/habits";
+@import "./components/tasks";
+@import "./components/events";
+@import "./components/navBar";

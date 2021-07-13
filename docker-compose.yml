@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+  ui:
+    container_name: taskout-ui
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    image: taskout-ui:lts
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./ui:/app/ui
+    env_file: .env.development
+
+  db:
+    container_name: taskout-db
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    image: taskout-db:lts
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db/database.sql:/docker-entrypoint-initdb.d/database.sql
+    env_file: .env.development
+    environment:
+      MYSQL_DATABASE: taskout
+      MYSQL_USER: taskout-user
+      MYSQL_PASSWORD: taskout-pwd
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+
+  api:
+    container_name: taskout-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: taskout-api:lts
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./api:/app/api
+    env_file: .env.development
+    restart: on-failure

@@ -1,0 +1,143 @@
+.home {
+  height: 100vh;
+  width: 100%;
+  color: $ivory;
+  background-color: $forest-green-crayola;
+
+  &__header {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+
+    &__link {
+      text-decoration: none;
+      color: $artichoke;
+      font-weight: 600;
+      background-color: $ivory;
+      height: 30px;
+      width: 100px;
+      margin-right: 10px;
+
+      display: grid;
+      place-items: center;
+    }
+  }
+
+  &__presentation {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 320px;
+
+    &__container {
+      margin-right: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &__title {
+        margin-top: 0;
+        color: $artichoke;
+      }
+
+      &__description {
+        margin-bottom: 10px;
+      }
+
+      &__button {
+        color: $artichoke;
+        font-weight: 600;
+        background-color: $ivory;
+        height: 30px;
+        width: 100px;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    &__image {
+      position: relative;
+
+      &__dashboard {
+        display: flex;
+
+        &__1 {
+          transform: rotate(-25deg);
+          margin-right: -40px;
+          margin-top: 35px;
+          height: 200px;
+        }
+
+        &__2 {
+          z-index: 1;
+          height: 200px;
+        }
+
+        &__3 {
+          transform: rotate(25deg);
+          margin-left: -40px;
+          margin-top: 35px;
+          height: 200px;
+        }
+      }
+
+      &__4 {
+        position: absolute;
+        top: 120px;
+        z-index: 2;
+        height: 200px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    &__presentation {
+      display: initial;
+
+      &__container {
+        text-align: center;
+        margin-bottom: 10px;
+        margin-right: 0;
+
+        &__button {
+          margin: auto;
+        }
+      }
+
+      &__image {
+        &__dashboard {
+          &__1 {
+            transform: rotate(-25deg);
+            margin-right: -25px;
+            margin-top: 25px;
+            height: 130px;
+          }
+
+          &__2 {
+            z-index: 1;
+            height: 130px;
+          }
+
+          &__3 {
+            transform: rotate(25deg);
+            margin-left: -25px;
+            margin-top: 25px;
+            height: 130px;
+          }
+        }
+
+        &__4 {
+          position: absolute;
+          top: 75px;
+          z-index: 2;
+          height: 130px;
+        }
+      }
+    }
+  }
+}

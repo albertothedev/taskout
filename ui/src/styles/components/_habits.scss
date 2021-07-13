@@ -1,0 +1,342 @@
+.habits {
+  background-color: #f4f4f4;
+  width: 30%;
+  height: 600px;
+  padding: 15px;
+  position: relative;
+  min-width: 350px;
+
+  &__add {
+    background-color: $dark-sea-green;
+    width: 300px;
+    height: 152px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    padding: 10px;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &__title {
+        height: 30px;
+        color: $ash;
+      }
+
+      &__icon {
+        cursor: pointer;
+        font-size: 140%;
+        color: $ash;
+
+        &:hover {
+          color: $ivory;
+        }
+      }
+    }
+
+    &__form {
+      width: 80%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 24px 24px 24px;
+      grid-row-gap: 10px;
+
+      &__description {
+        border: none;
+        padding: 0 5px;
+        height: 100%;
+        background-color: $ivory;
+        color: $ash;
+      }
+
+      &__days {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        height: 100%;
+
+        &__day {
+          background-color: transparent;
+          font-size: 70%;
+          color: $ivory;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          place-items: center;
+
+          &:hover {
+            color: $dark-sea-green;
+            background-color: $ivory;
+          }
+
+          &--active {
+            color: $ash;
+            background-color: $ivory;
+          }
+        }
+      }
+
+      &__submit {
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+        width: 50px;
+        margin: auto;
+        background-color: white;
+        color: $ash;
+        font-size: 120%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__title {
+    @include itemTitle;
+  }
+
+  &__list {
+    overflow: auto;
+    height: 80%;
+    position: relative;
+
+    &__habit {
+      background-color: $ivory;
+      padding: 10px;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      &:hover {
+        .habits__list__habit__details__icon {
+          display: block !important;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &__options {
+        position: absolute;
+        right: 0;
+        top: 20px;
+        background-color: white;
+        width: 100px;
+        box-shadow: 0 2px 2px 0 rgba(26, 24, 29, 0.16), 0 1px 4px 0 rgba(26, 24, 29, 0.12);
+        padding: 5px;
+        z-index: 10;
+
+        &__option {
+          cursor: pointer;
+          display: grid;
+          grid-template-columns: 20px 1fr;
+          grid-template-rows: 20px;
+          grid-gap: 5px;
+          align-items: center;
+
+          &:hover {
+            color: $artichoke;
+          }
+
+          &__icon {
+            height: 100%;
+            width: 100% !important;
+          }
+        }
+      }
+
+      &__edit {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__button {
+          border: none;
+          border-radius: 50%;
+          background-color: $ivory;
+          cursor: pointer;
+
+          &__icon {
+            font-size: 200%;
+            cursor: pointer;
+            height: 48px !important;
+            width: 48px !important;
+            color: $sage;
+
+            &:hover {
+              color: $artichoke;
+            }
+          }
+        }
+
+        &__details {
+          width: 60%;
+
+          &__description {
+            border: none;
+            background-color: #f4f4f4;
+            height: 24px;
+            width: 100%;
+            padding: 0 5px;
+          }
+
+          &__days {
+            list-style: none;
+            display: flex;
+            height: 24px;
+            justify-content: space-between;
+
+            &__day {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              color: $dark-sea-green;
+              height: 24px;
+              width: 100%;
+              display: grid;
+              place-items: center;
+
+              &:hover {
+                color: $ivory;
+                background-color: $dark-sea-green;
+              }
+
+              &--active {
+                color: $ivory;
+                background-color: $dark-sea-green;
+              }
+            }
+          }
+        }
+      }
+
+      &__details {
+        width: 100%;
+        padding: 0 10px 0 0;
+        position: relative;
+
+        &__description {
+          height: 24px;
+          display: flex;
+          align-items: center;
+          color: $ash;
+        }
+
+        &__days {
+          height: 24px;
+          display: flex;
+
+          &__day {
+            padding: 0;
+            margin: 0;
+            color: #ccc;
+            height: 24px;
+            display: grid;
+            place-items: center;
+
+            &:not(:last-child) {
+              margin-right: 5px;
+            }
+
+            &--active {
+              color: $dark-sea-green;
+            }
+
+            &--daily {
+              text-decoration: underline $dark-sea-green;
+            }
+
+            &--completed {
+              background-color: $dark-sea-green;
+              color: white;
+              border: none;
+            }
+          }
+        }
+
+        &__completions {
+          padding: 0;
+          margin: 0;
+          font-weight: 900;
+          color: $dark-sea-green;
+          position: absolute;
+          bottom: 0;
+          right: 10px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+        }
+
+        &__icon {
+          height: 24px;
+          position: absolute;
+          width: 10px;
+          top: 0;
+          right: 10px;
+          color: rgb(90, 90, 90);
+          display: none;
+          cursor: pointer;
+          color: $sage;
+
+          &:hover {
+            color: $artichoke;
+          }
+        }
+      }
+
+      &__icon {
+        height: 48px !important;
+        width: 48px !important;
+        color: #dddddd;
+        cursor: pointer;
+
+        &--active {
+          color: $sage;
+
+          &:hover {
+            color: $artichoke;
+          }
+        }
+      }
+    }
+  }
+
+  &__addButton {
+    @include addItem;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    width: 70%;
+  }
+
+  @media only screen and (max-width: 900px) {
+    width: 90%;
+    min-width: auto;
+    margin-bottom: 15px;
+    height: 400px;
+
+    &__list__habit__details__icon {
+      display: block !important;
+    }
+
+    &__list__habit__details__days__day {
+      font-size: 12px;
+
+      &:not(:last-child) {
+        margin-right: 3px;
+      }
+    }
+  }
+}

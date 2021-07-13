@@ -1,0 +1,255 @@
+.tasks {
+  background-color: #f4f4f4;
+  width: 30%;
+  height: 600px;
+  padding: 15px;
+  position: relative;
+  min-width: 350px;
+
+  &__add {
+    background-color: $dark-sea-green;
+    width: 300px;
+    height: 118px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    padding: 10px;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      color: $ash;
+
+      &__title {
+        height: 30px;
+      }
+
+      &__icon {
+        cursor: pointer;
+        font-size: 140%;
+
+        &:hover {
+          color: $ivory;
+        }
+      }
+    }
+
+    &__form {
+      width: 80%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 24px 24px;
+      grid-row-gap: 10px;
+
+      &__description {
+        border: none;
+        padding: 0 5px;
+        height: 100%;
+        background-color: $ivory;
+        color: $ash;
+      }
+
+      &__submit {
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+        width: 50px;
+        margin: auto;
+        background-color: $ivory;
+        color: $ash;
+        font-size: 120%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__header {
+    @include itemTitle;
+    justify-content: space-between;
+
+    &__sort {
+      list-style: none;
+      display: flex;
+
+      &__mode {
+        &--active {
+          border-bottom: 2px solid $dark-sea-green;
+        }
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+
+        &__button {
+          border: none;
+          cursor: pointer;
+          color: $dark-sea-green;
+          background-color: inherit;
+        }
+      }
+    }
+  }
+
+  &__list {
+    overflow: auto;
+    height: 80%;
+    position: relative;
+
+    &__task {
+      background-color: $ivory;
+      cursor: pointer;
+      display: flex;
+      position: relative;
+      padding: 10px;
+      color: $ash;
+
+      &:hover {
+        .tasks__list__task__icon {
+          display: block;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &__options {
+        position: absolute;
+        right: 0;
+        top: 20px;
+        background-color: white;
+        width: 100px;
+        box-shadow: 0 2px 2px 0 rgba(26, 24, 29, 0.16), 0 1px 4px 0 rgba(26, 24, 29, 0.12);
+        padding: 5px;
+        z-index: 10;
+
+        &__option {
+          cursor: pointer;
+          display: grid;
+          grid-template-columns: 20px 1fr;
+          grid-template-rows: 20px;
+          grid-gap: 5px;
+          align-items: center;
+
+          &:hover {
+            color: $artichoke;
+          }
+
+          &__icon {
+            height: 100%;
+            width: 100% !important;
+          }
+        }
+      }
+
+      &__edit {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+        &__button {
+          border: none;
+          border-radius: 50%;
+          background-color: $ivory;
+          cursor: pointer;
+
+          &__icon {
+            width: 8%;
+            font-size: 200%;
+            height: 24px;
+            color: $sage;
+
+            &:hover {
+              color: $artichoke;
+            }
+          }
+        }
+
+        &__details {
+          width: 60%;
+
+          &__description {
+            border: none;
+            background-color: #f4f4f4;
+            height: 24px;
+            width: 100%;
+            padding: 0 5px;
+            color: $ash;
+          }
+        }
+      }
+
+      &--completed {
+        background-color: $dark-sea-green !important;
+        font-style: italic;
+        text-decoration: line-through;
+      }
+
+      &__description {
+        width: 100%;
+        height: 24px;
+        display: flex;
+        align-items: center;
+      }
+
+      &__icon {
+        cursor: pointer;
+        height: 24px;
+        display: none;
+        color: rgb(90, 90, 90);
+        color: $sage;
+
+        &:hover {
+          color: $artichoke;
+        }
+      }
+    }
+  }
+
+  &__addButton {
+    @include addItem;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    width: 70%;
+  }
+
+  @media only screen and (max-width: 900px) {
+    width: 90%;
+    min-width: auto;
+    margin-bottom: 15px;
+    height: 400px;
+
+    &__list__task__icon {
+      display: block !important;
+    }
+
+    &__header {
+      flex-direction: column;
+      height: 15%;
+
+      &__title {
+        height: calc(100% / 3 * 2);
+      }
+
+      &__sort {
+        height: calc(100% / 3);
+      }
+    }
+
+    &__list {
+      height: 75%;
+    }
+
+    &__addButton {
+    }
+  }
+}

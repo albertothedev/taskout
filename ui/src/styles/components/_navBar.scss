@@ -1,0 +1,81 @@
+.navBar {
+  height: 5vh;
+  width: 100%;
+  background-color: $artichoke;
+  color: white;
+  font-size: 200%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+
+  &__links {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    &__link {
+      margin-left: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  &__settings {
+    background-color: inherit;
+    border: 0;
+    margin-right: 30px;
+    color: white;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  &__settings2 {
+    position: absolute;
+    right: 0;
+    top: 5vh;
+    background-color: white;
+    margin-right: 30px;
+    width: 100px;
+
+    :last-child {
+      padding-bottom: 10px;
+    }
+
+    &__button {
+      color: black;
+      display: block;
+      font-size: 16px;
+      padding: 10px 10px 0 10px;
+      background-color: inherit;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 150%;
+    padding: 0 10px;
+
+    &__links {
+      &__link {
+        margin: 0;
+        &:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &__settings {
+      margin: 0;
+
+      &__span {
+        display: none;
+      }
+    }
+  }
+}

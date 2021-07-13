@@ -1,0 +1,27 @@
+@mixin itemTitle {
+  display: flex;
+  align-items: center;
+  height: 10%;
+
+  h1 {
+    margin: 0;
+    color: $artichoke;
+  }
+}
+
+@mixin addItem {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  height: 10%;
+
+  .icon {
+    cursor: pointer;
+    color: $sage;
+    font-size: 200%;
+
+    &:hover {
+      color: $artichoke;
+    }
+  }
+}

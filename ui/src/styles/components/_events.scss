@@ -1,0 +1,310 @@
+.events {
+  background-color: #f4f4f4;
+  width: 30%;
+  height: 600px;
+  padding: 15px;
+  position: relative;
+  min-width: 350px;
+
+  &__add {
+    background-color: $dark-sea-green;
+    width: 300px;
+    height: 152px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    padding: 10px;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      color: $ash;
+
+      &__title {
+        height: 30px;
+      }
+
+      &__icon {
+        cursor: pointer;
+        font-size: 140%;
+
+        &:hover {
+          color: $ivory;
+        }
+      }
+    }
+
+    &__form {
+      width: 80%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 65% 35%;
+      grid-template-rows: 24px 24px 24px;
+      grid-template-areas:
+        "description description"
+        "datePicker timePicker"
+        "submit submit";
+      grid-row-gap: 10px;
+
+      &__description {
+        border: none;
+        grid-area: description;
+        height: 100%;
+        padding: 0 5px;
+        background-color: $ivory;
+        color: $ash;
+      }
+
+      &__datePicker {
+        grid-area: datePicker;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        position: relative;
+
+        &__icon {
+          margin-right: 5px;
+          color: $ash;
+        }
+
+        &__date {
+          border: none;
+          width: 100%;
+          height: 100%;
+          padding: 0 5px;
+          color: $ash;
+        }
+      }
+
+      &__timePicker {
+        grid-area: timePicker;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &__icon {
+          margin-right: 5px;
+          color: $ash;
+        }
+
+        &__time {
+          border: none;
+          width: 100%;
+          height: 100%;
+          padding: 0 5px;
+          color: $ash;
+        }
+      }
+
+      &__submit {
+        grid-area: submit;
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+        width: 50px;
+        margin: auto;
+        background-color: $ivory;
+        color: $ash;
+        font-size: 120%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__title {
+    @include itemTitle;
+  }
+
+  &__list {
+    overflow: auto;
+    height: 80%;
+    position: relative;
+
+    &__event {
+      background-color: $ivory;
+      padding: 10px;
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &:hover {
+        .events__list__event__icon {
+          display: block;
+        }
+      }
+
+      &__options {
+        position: absolute;
+        right: 0;
+        top: 20px;
+        background-color: white;
+        width: 100px;
+        box-shadow: 0 2px 2px 0 rgba(26, 24, 29, 0.16), 0 1px 4px 0 rgba(26, 24, 29, 0.12);
+        padding: 5px;
+        z-index: 10;
+
+        &__option {
+          cursor: pointer;
+          display: grid;
+          grid-template-columns: 20px 1fr;
+          grid-template-rows: 20px;
+          grid-gap: 5px;
+          align-items: center;
+
+          &:hover {
+            color: $artichoke;
+          }
+
+          &__icon {
+            height: 100%;
+            width: 100% !important;
+          }
+        }
+      }
+
+      &__edit {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__button {
+          border: none;
+          border-radius: 50%;
+          background-color: $ivory;
+          cursor: pointer;
+
+          &__icon {
+            font-size: 200%;
+            height: 48px;
+            width: 48px !important;
+            color: $sage;
+
+            &:hover {
+              color: $artichoke;
+            }
+          }
+        }
+
+        &__details {
+          width: 60%;
+          margin: auto;
+          display: grid;
+          grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+          grid-template-rows: 24px 24px;
+          grid-template-areas: "description description" "datePicker timePicker";
+          grid-gap: 0 10px;
+
+          &__description {
+            height: 24px;
+            border: none;
+            background-color: #f4f4f4;
+            grid-area: description;
+            padding: 0 5px;
+            color: $ash;
+          }
+
+          &__datePicker {
+            height: 24px;
+            grid-area: datePicker;
+            display: flex;
+            position: relative;
+
+            &__icon {
+              height: 100%;
+              margin-right: 5px;
+              color: $ash;
+            }
+
+            &__date {
+              border: none;
+              background-color: #f4f4f4;
+              height: 100%;
+              width: 100%;
+              padding: 0 5px;
+              color: $ash;
+            }
+          }
+
+          &__timePicker {
+            height: 24px;
+            grid-area: timePicker;
+            display: flex;
+            position: relative;
+
+            &__icon {
+              height: 100%;
+              margin-right: 5px;
+              color: $ash;
+            }
+
+            &__time {
+              border: none;
+              background-color: #f4f4f4;
+              height: 100%;
+              width: 100%;
+              padding: 0 5px;
+              color: $ash;
+            }
+          }
+        }
+      }
+
+      &__description {
+        height: 24px;
+        display: flex;
+        align-items: center;
+        color: $ash;
+      }
+
+      &__date {
+        color: $dark-sea-green;
+        height: 24px;
+        display: flex;
+        align-items: center;
+      }
+
+      &__icon {
+        width: 5%;
+        color: rgb(90, 90, 90);
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        display: none;
+        cursor: pointer;
+        height: 24px;
+        color: $sage;
+
+        &:hover {
+          color: $artichoke;
+        }
+      }
+    }
+  }
+
+  &__addButton {
+    @include addItem;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    width: 70%;
+  }
+
+  @media only screen and (max-width: 900px) {
+    width: 90%;
+    min-width: auto;
+    margin-bottom: 15px;
+    height: 400px;
+
+    &__list__event__icon {
+      display: block !important;
+    }
+  }
+}

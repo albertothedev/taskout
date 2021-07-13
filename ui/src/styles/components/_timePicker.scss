@@ -1,0 +1,52 @@
+.timePicker {
+  background-color: #f4f4f4;
+  position: absolute;
+  left: 21px;
+  top: 24px;
+  z-index: 100000;
+  display: grid;
+  grid-template-columns: 1fr 5px 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "hours colon minutes" "submit submit submit";
+  align-items: center;
+  height: 74px;
+  width: 55px;
+  color: $ash;
+
+  &__hours {
+    grid-area: hours;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25px;
+
+    &__icon {
+      cursor: pointer;
+    }
+  }
+
+  &__colon {
+    grid-area: colon;
+  }
+
+  &__minutes {
+    grid-area: minutes;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25px;
+
+    &__icon {
+      cursor: pointer;
+    }
+  }
+
+  &__submit {
+    grid-area: submit;
+    border: none;
+    background-color: $artichoke;
+    cursor: pointer;
+    height: 24px;
+    color: white;
+  }
+}

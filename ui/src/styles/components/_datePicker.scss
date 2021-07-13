@@ -1,0 +1,63 @@
+.datePicker {
+  width: 260px;
+  background-color: #f4f4f4;
+  top: 24px;
+  left: 19px;
+  position: absolute;
+  z-index: 100;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: $artichoke;
+    color: #f4f4f4;
+
+    &__title {
+      font-size: 160%;
+      margin: 0;
+    }
+
+    &__icon {
+      font-size: 160%;
+      cursor: pointer;
+      color: #f4f4f4;
+    }
+  }
+
+  &__calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    font-size: 80%;
+    justify-items: center;
+    padding: 5px;
+    color: $ash;
+    background-color: $dark-sea-green;
+
+    &__weekDay {
+      font-weight: 600;
+      font-size: 120%;
+    }
+
+    &__currentMonthDay {
+      color: $artichoke;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $artichoke;
+        color: #f4f4f4;
+      }
+    }
+
+    &__previousMonthDay,
+    &__nextMonthDay {
+      color: #d9d9d9;
+      font-style: italic;
+    }
+  }
+}
