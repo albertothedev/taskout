@@ -15,6 +15,8 @@ module.exports = (app: express.Application) =>
 
           const token: string = jwt.sign({ user_id: user.dataValues.user_id.toString() }, <string>process.env.TASKOUT_JWT_SECRET);
 
+          res.cookie("jwt", token);
+
           return res.status(200).send(token);
         });
 

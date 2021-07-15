@@ -55,10 +55,7 @@ export default defineComponent({
             withCredentials: true,
           }
         )
-        .then((res: AxiosResponse) => {
-          document.cookie = `jwt=${res.data}`;
-          router.push("/dashboard");
-        })
+        .then((res: AxiosResponse) => router.push("/dashboard"))
         .catch(() => alert("Email already in use"));
     }
 

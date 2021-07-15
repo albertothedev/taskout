@@ -12,30 +12,14 @@ export default defineComponent({
     const router = useRouter();
 
     (async function() {
-      alert(
-        `${process.env.VUE_APP_TASKOUT_API_URL}${document.location.pathname}`
-      );
-
-      if (!document.cookie) {
-        alert("Setting cookie");
-        document.cookie = `jwt=${document.location.pathname.replace(
-          "/confirmEmail/",
-          ""
-        )}`;
-      }
+      if (!document.cookie) document.cookie = `jwt=${document.location.pathname.replace("/confirmEmail/", "")}`;
 
       await axios
-        .get(
-          `${process.env.VUE_APP_TASKOUT_API_URL}${document.location.pathname}`,
-          {
-            withCredentials: true,
-          }
-        )
+        .get(`${process.env.VUE_APP_TASKOUT_API_URL}${document.location.pathname}`, {
+          withCredentials: true,
+        })
         .then((res: AxiosResponse) => router.push("/dashboard"))
-        .catch((error: AxiosError) => {
-          console.error(error);
-          router.push("/");
-        });
+        .catch((error: AxiosError) => router.push("/"));
     })();
   },
 });
