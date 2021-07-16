@@ -72,13 +72,30 @@ passport.use(
   )
 );
 
+const extractJwt = require("passport-jwt").ExtractJwt;
+
 passport.use(
-  "jwt",
+  "JWTFromCookie",
   new JwtStrategy(
     {
       jwtFromRequest: (req: express.Request) => req.cookies.jwt,
       secretOrKey: process.env.TASKOUT_JWT_SECRET,
       passReqToCallback: true,
+    },
+    (req: any, jwtPayload: any, done: any) =>
+      User.findOne({ where: { user_id: jwtPayload.user_id } })
+        .then((user: any) => done(null, user))
+        .catch((err: any) => done(err))
+  )
+);
+
+passport.use(
+  "JWTFromURLQueryParameter",
+  new JwtStrategy(
+    {
+      jwtFromRequest: extractJwt.fromUrlQueryParameter("jwt"),
+      secretOrKey: process.env.TASKOUT_JWT_SECRET,
+      passReqToCallback: true, // Without this it crashes
     },
     (req: any, jwtPayload: any, done: any) =>
       User.findOne({ where: { user_id: jwtPayload.user_id } })

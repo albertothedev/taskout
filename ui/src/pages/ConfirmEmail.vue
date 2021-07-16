@@ -12,10 +12,8 @@ export default defineComponent({
     const router = useRouter();
 
     (async function() {
-      if (!document.cookie) document.cookie = `jwt=${document.location.pathname.replace("/confirmEmail/", "")}`;
-
       await axios
-        .get(`${process.env.VUE_APP_TASKOUT_API_URL}${document.location.pathname}`, {
+        .get(`${process.env.VUE_APP_TASKOUT_API_URL}${document.location.pathname}${window.location.search}`, {
           withCredentials: true,
         })
         .then((res: AxiosResponse) => router.push("/dashboard"))

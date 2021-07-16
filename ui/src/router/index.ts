@@ -7,7 +7,6 @@ import Dashboard from "../pages/Dashboard.vue";
 import Calendar from "../pages/Calendar.vue";
 import ConfirmEmail from "../pages/ConfirmEmail.vue";
 import RecoverPassword from "../pages/RecoverPassword.vue";
-import ResetPassword from "../pages/ResetPassword.vue";
 
 const routes: Array<RouteRecordRaw> = [
   { path: "/", component: Home },
@@ -15,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: "/signUp", component: SignUp },
   { path: "/dashboard", component: Dashboard },
   { path: "/calendar", component: Calendar },
-  { path: "/confirmEmail/:token", component: ConfirmEmail },
+  { path: "/confirmEmail", component: ConfirmEmail },
   { path: "/recoverPassword", component: RecoverPassword },
 ];
 
