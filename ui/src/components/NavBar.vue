@@ -10,7 +10,7 @@
     </button>
 
     <div class="navBar__settings2" v-if="settings">
-      <button class="navBar__settings2__button" @click="nothingYet">
+      <button class="navBar__settings2__button">
         Settings
       </button>
       <button class="navBar__settings2__button" @click="logout">Log out</button>
@@ -38,11 +38,7 @@ export default defineComponent({
         .catch((err: AxiosError) => console.error(err));
     }
 
-    function nothingYet() {
-      console.log("nothingYet() called");
-    }
-
-    return { settings, router, logout, nothingYet };
+    return { settings, router, logout };
   },
 });
 </script>
