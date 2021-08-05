@@ -10,7 +10,7 @@ Task app built with Vue, Node.js (Express), and MySQL. TypeScript is enabled glo
    npm run install
    ```
 
-2. Builds the images for the frontend, the backend, and the database and creates two containers from them.
+2. Builds the images for the frontend, the backend, and the database and creates three containers from them.
 
    ```sh
    npm run start
