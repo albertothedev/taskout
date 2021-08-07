@@ -4,7 +4,7 @@ import express from "express";
 const { Habit, Task, Event } = require("../config/sequelize");
 
 module.exports = (app: express.Application) =>
-  app.post("/updateItem", passport.authenticate("jwt", { session: false }), (req: any, res: express.Response) => {
+  app.post("/updateItem", passport.authenticate("JWTFromCookie", { session: false }), (req: any, res: express.Response) => {
     switch (req.body.data.item) {
       case "habits":
         Habit.findOne({

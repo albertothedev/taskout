@@ -3,7 +3,7 @@ import express from "express";
 
 module.exports = (app: express.Application) =>
   app.post("/addItem", (req: express.Request, res: express.Response, next: express.NextFunction) =>
-    passport.authenticate("jwt", (err, user, info) => {
+    passport.authenticate("JWTFromCookie", (err, user, info) => {
       if (err) return next(err);
 
       if (!user) return res.redirect("/signIn");
