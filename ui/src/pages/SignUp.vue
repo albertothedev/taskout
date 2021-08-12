@@ -4,13 +4,13 @@
       <h2 class="signUp__container__title">SIGN UP</h2>
 
       <form class="signUp__container__form" @submit.prevent="handleSubmit">
-        <input type="text" class="signUp__container__form__username" placeholder="Username" maxlength="20" />
+        <input type="text" class="signUp__container__form__username" placeholder="Username" maxlength="20" required />
 
-        <input type="text" class="signUp__container__form__email" placeholder="Email" />
+        <input type="email" class="signUp__container__form__email" placeholder="Email" required />
 
-        <input type="password" class="signUp__container__form__password" placeholder="Password" />
+        <input type="password" class="signUp__container__form__password" placeholder="Password" required />
 
-        <input type="password" class="signUp__container__form__confirmPassword" placeholder="Confirm password" />
+        <input type="password" class="signUp__container__form__confirmPassword" placeholder="Confirm password" required />
 
         <button class="signUp__container__form__submit">SIGN UP</button>
       </form>
