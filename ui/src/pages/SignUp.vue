@@ -55,7 +55,7 @@ export default defineComponent({
             },
             { withCredentials: true }
           )
-          .then(() => alert("Your account has been created!"))
+          .then(() => alert("Your account has been created. Check your email for a confirmation link."))
           .catch(() => alert("Email already in use"));
       else alert("Passwords don't match");
     }
