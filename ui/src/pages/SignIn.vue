@@ -3,29 +3,15 @@
     <div class="signIn__container">
       <h2 class="signIn__container__title">SIGN IN</h2>
       <form class="signIn__container__form" @submit.prevent="handleSubmit">
-        <input
-          class="signIn__container__form__email"
-          type="text"
-          placeholder="Email"
-        />
-        <input
-          class="signIn__container__form__password"
-          type="password"
-          placeholder="Password"
-        />
+        <input class="signIn__container__form__email" type="email" placeholder="Email" required />
+        <input class="signIn__container__form__password" type="password" placeholder="Password" required />
         <button class="signIn__container__form__submit">
           SIGN IN
         </button>
       </form>
-      <a
-        class="signIn__container__link"
-        @click="router.push('/recoverPassword')"
-        >I forgot my password</a
-      >
+      <a class="signIn__container__link" @click="router.push('/recoverPassword')">I forgot my password</a>
 
-      <a class="signIn__container__link" @click="router.push('/signUp')"
-        >I don't have an account</a
-      >
+      <a class="signIn__container__link" @click="router.push('/signUp')">I don't have an account</a>
     </div>
   </div>
 </template>
@@ -49,12 +35,8 @@ export default defineComponent({
     });
 
     function handleSubmit() {
-      const email: string = (<HTMLInputElement>(
-        document.querySelector(".signIn__container__form__email")
-      )).value.trim();
-      const password: string = (<HTMLInputElement>(
-        document.querySelector(".signIn__container__form__password")
-      )).value.trim();
+      const email: string = (<HTMLInputElement>document.querySelector(".signIn__container__form__email")).value.trim();
+      const password: string = (<HTMLInputElement>document.querySelector(".signIn__container__form__password")).value.trim();
 
       axios
         .post(
